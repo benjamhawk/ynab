@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
+import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { formatter, getMonthlyAmount } from '../utils'

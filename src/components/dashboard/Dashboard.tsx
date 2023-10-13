@@ -9,34 +9,14 @@ import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
-import Badge from '@mui/material/Badge'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
-import Link from '@mui/material/Link'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
-import NotificationsIcon from '@mui/icons-material/Notifications'
-import { mainListItems, secondaryListItems } from './listItems'
-import Chart from './Chart'
-import Deposits from './Deposits'
-import Orders from './Orders'
-import BudgetGrid from '../DataGrid'
+import { mainListItems } from './listItems'
 
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/"></Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
+import BudgetGrid from '../DataGrid'
 
 const drawerWidth: number = 240
 
@@ -90,7 +70,7 @@ const Drawer = styled(MuiDrawer, {
 
 const mdTheme = createTheme()
 
-function DashboardContent() {
+export function Dashboard() {
   const [open, setOpen] = React.useState(true)
   const toggleDrawer = () => {
     setOpen(!open)
@@ -100,7 +80,7 @@ function DashboardContent() {
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        <AppBar position="absolute" open={open} className="AppBar">
           <Toolbar
             sx={{
               pr: '24px' // keep right padding when drawer closed
@@ -139,11 +119,7 @@ function DashboardContent() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">
-            {mainListItems}
-            {/* <Divider sx={{ my: 1 }} />
-            {secondaryListItems} */}
-          </List>
+          <List component="nav">{mainListItems}</List>
         </Drawer>
         <Box
           component="main"
@@ -168,8 +144,4 @@ function DashboardContent() {
       </Box>
     </ThemeProvider>
   )
-}
-
-export default function Dashboard() {
-  return <DashboardContent />
 }
